@@ -3,7 +3,40 @@
 	role="search">
 	${fe:facetForm()}${fe:geoForm()}
 	<header>
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div id="content" class="container-fluid p-2">
+			<div class="row align-items-center mx-0">
+				<la:link styleClass="d-inline-flex" href="/">
+					<img src="${fe:url('/images/logo-head.png')}"
+						alt="<la:message key="labels.header_brand_name" />"
+						class="align-items-center" />
+				</la:link>
+				<div class="col-12 col-sm-7 col-md-6 col-lg-5">
+					<div>
+						<ul class="pl-1 mb-1">
+							<li>
+								<la:link href="/search/advance?q=${f:u(q)}${fe:pagingQuery(null)}">
+									<la:message key="labels.advance" />
+								</la:link>
+							</li>
+							<li>
+								<a href="/help" role="help"><la:message key="labels.index_help" /></a>
+							</li>
+						</ul>
+					</div>
+					<div class="input-group" role="search">
+						<la:text property="q" maxlength="1000" styleId="query"
+							styleClass="form-control form-control-sm" autocomplete="off" />
+						<span class="input-group-append">
+							<button type="submit" name="search" id="searchButton"
+								class="btn btn-sm btn-secondary">
+								<la:message key="labels.index_form_search_btn" />
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<div id="content" class="container">
 				<la:link styleClass="navbar-brand d-inline-flex" href="/">
 					<img src="${fe:url('/images/logo-head.png')}"
@@ -74,9 +107,9 @@
 						</la:link></li>
 				</ul>
 			</div>
-		</nav>
+		</nav> -->
 	</header>
-	<div id="searchOptions" class="control-options">
+	<!-- <div id="searchOptions" class="control-options">
 		<div class="container">
 			<jsp:include page="/WEB-INF/view/searchOptions.jsp" />
 			<div>
@@ -95,5 +128,5 @@
 				</button>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </la:form>

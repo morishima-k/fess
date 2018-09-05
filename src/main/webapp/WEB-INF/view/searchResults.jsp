@@ -1,7 +1,16 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%-- query matched some document --%>
-<div id="subheader" class="row">
-	<div class="col">
+<div id="subheader" class="row justify-content-between">
+	<div class="col-auto ml-2 mr-1 px-1 px-sm-3">
+		<la:message key="labels.search_result_status"
+			arg0="${f:h(displayQuery)}" arg1="${f:h(allRecordCount)}"
+			arg2="${f:h(currentStartRecordNumber)}"
+			arg3="${f:h(currentEndRecordNumber)}" />
+	</div>
+	<div class="col-auto ml-1 mr-2 px-1 px-sm-3">
+		<!-- number -->
+	</div>
+	<!-- <div class="col">
 		<p>
 			<la:message key="labels.search_result_status"
 				arg0="${f:h(displayQuery)}" arg1="${f:h(allRecordCount)}"
@@ -16,7 +25,14 @@
 			<la:message key="labels.similar_doc_result_status" />
 		</p>
 		</c:if>
-	</div>
+	</div> -->
+</div>
+<div class="row justify-content-end mt-1 px-4">
+	<small>
+		<a href="/">日付順に表示する</a>
+		/
+		検索ヒット順に表示する
+	</small>
 </div>
 <c:if test="${partialResults}">
 	<div class="alert">
@@ -135,7 +151,7 @@
 								test="${countEntry.value != 0 && fe:labelexists(countEntry.key)}">
 								<li class="list-group-item"><la:link
 										href="/search?q=${f:u(q)}&ex_q=label%3a${f:u(countEntry.key)}&sdh=${f:u(fe:sdh(sh))}${fe:pagingQuery(null)}${fe:facetQuery()}${fe:geoQuery()}">
-											${f:h(fe:label(countEntry.key))} 
+											${f:h(fe:label(countEntry.key))}
 											<span class="badge badge-secondary badge-pill float-right">${f:h(countEntry.value)}</span>
 									</la:link></li>
 							</c:if>

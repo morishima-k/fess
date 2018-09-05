@@ -20,8 +20,8 @@
 </head>
 <body class="search">
 	<jsp:include page="header.jsp" />
-	<main id="content" class="container">
-		<ul class="list-inline">
+	<main id="content" class="container-fluid">
+		<!-- <ul class="list-inline">
 			<li class="list-inline-item"><la:message key="labels.searchoptions_menu_sort" /> <a
 				href="#searchOptions" class="badge badge-primary"
 				data-toggle="control-options"> <c:if test="${empty sort}">
@@ -133,13 +133,13 @@
 					${item}
 				</div>
 			</div>
-		</c:forEach>
+		</c:forEach> -->
 		<c:choose>
 			<c:when test="${f:h(allRecordCount) != 0}">
 				<jsp:include page="searchResults.jsp" />
-				<div class="text-right">
+				<!-- <div class="text-right">
 					<a href="#"><la:message key="labels.footer_back_to_top" /></a>
-				</div>
+				</div> -->
 			</c:when>
 			<c:otherwise>
 				<jsp:include page="searchNoResult.jsp" />
